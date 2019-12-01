@@ -23,8 +23,6 @@ class CategoryController extends AppController
         if(empty($category))
             throw new \yii\web\HttpException(404, 'Выбранной категории не существует');
 
-
-
         $query = Product::find()->where(['category_id' => $id]);
         $pages = new Pagination(['totalCount' => $query->count(),
             'pageSize' => 2,
