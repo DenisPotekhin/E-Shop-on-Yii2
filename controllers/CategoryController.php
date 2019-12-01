@@ -33,4 +33,18 @@ class CategoryController extends AppController
         $this->setMeta('E-Shop | ' . $category->name, $category->keywords, $category->description);
         return $this->render('view', compact('products', 'pages', 'category'));
     }
+
+    public function actionSearch() {
+        $q = trim(Yii::$app->request->get('q'));
+        $this->setMeta('E-Shop | Search: ' . $q);
+        if (!$q)
+            return $this->render('search');
+        $query = Product::find()->where(['like', 'name', $q]);
+        $pages = new Pagination(['totalCount' => $query->count(),
+            'pageSize' => 2,
+            'forcePageParam' => FALSE,
+            'pageSizeParam' => FALSE]);
+        $products = $query->offset($pages->offset)->limit($pages->limit)->all();
+        return $this->render('search', compact('products', 'pages', 'q'));
+    }
 }
