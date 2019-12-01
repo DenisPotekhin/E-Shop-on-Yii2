@@ -6,6 +6,23 @@ $('.catalog').dcAccordion({
 	speed: 350
 });
 
+$('.add-to-cart').on('click', function (e) {
+	e.preventDefault();
+	var id = $(this).data('id');
+	$.ajax({
+		url: '/cart/add',
+		data: {id: id},
+		type: 'GET',
+		success: function (res) {
+			if (!res) alert('Ощибка!');
+			console.log(res);
+			showCart();
+		},
+		error: function () {
+			alert('Error!');
+		}
+	});
+});
 
 var RGBChange = function() {
 	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')

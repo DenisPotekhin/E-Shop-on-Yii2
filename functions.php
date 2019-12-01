@@ -1,6 +1,4 @@
 <?php
-
-function debug($object)
-{
-    echo '<pre>' . print_r($object, true) . '</pre>';
+function debug($arr) {
+    echo "<pre>" . print_r($arr, true) ."</pre>";
 }
