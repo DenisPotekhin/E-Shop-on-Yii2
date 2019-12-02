@@ -6,6 +6,8 @@ namespace app\controllers;
 use app\models\Category;
 use app\models\Product;
 use app\models\Cart;
+use app\models\Order;
+use app\models\OrderItems;
 use Yii;
 use yii\data\Pagination;
 
@@ -56,6 +58,10 @@ class CartController extends AppController
     }
 
     public function actionView() {
-        return $this->render('view', compact('session'));
+        $session = Yii::$app->session;
+        $session->open();
+        $this->setMeta('Cart');
+        $order = new Order();
+        return $this->render('view', compact('session', 'order'));
     }
 }
