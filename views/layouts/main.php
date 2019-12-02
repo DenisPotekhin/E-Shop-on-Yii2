@@ -5,6 +5,7 @@
 
 use app\widgets\Alert;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -320,7 +321,7 @@ LtAppAsset::register($this);
         'id' => 'cart',
         'size' => 'modal-lg',
         'footer' => '<button type="button" class="btn btn-secondary" data-dismiss="modal">Продолжить покупки</button>
-        <button type="button" class="btn btn-success">Оформить заказ</button>
+        <a href="' . Url::to(['cart/view']) . '" class="btn btn-success">Оформить заказ</a>
         <button type="button" class="btn btn-danger" onclick="clearCart()">Очистить корзину</button>',
     ]);
     Modal::end();
