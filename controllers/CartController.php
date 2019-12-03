@@ -10,6 +10,7 @@ use app\models\Order;
 use app\models\OrderItems;
 use Yii;
 use yii\data\Pagination;
+use yii\web\Response;
 
 class CartController extends AppController
 {
@@ -63,8 +64,32 @@ class CartController extends AppController
         $this->setMeta('Cart');
         $order = new Order();
         if ( $order->load(Yii::$app->request->post())) {
-
+            $order->qty = $session['cart.qty'];
+            $order->sum = $session['cart.sum'];
+            if ($order->save()) {
+                $this->saveOrderItems($session['cart'], $order->id);
+                Yii::$app->session->setFlash('success', 'Ваш заказ сохранен!');
+                $session->remove('cart');
+                $session->remove('cart.qty');
+                $session->remove('cart.sum');
+                return Yii::$app->getResponse()->refresh();
+            } else {
+                Yii::$app->session->setFlash('error', 'Что-то пошло не так!');
+            }
         }
         return $this->render('view', compact('session', 'order'));
+    }
+
+    protected function saveOrderItems($items, $orderId) {
+        foreach ($items as $id => $item) {
+            $orderItems = new OrderItems();
+            $orderItems->order_id = $orderId;
+            $orderItems->product_id = $id;
+            $orderItems->name = $item['name'];
+            $orderItems->price = $item['price'];
+            $orderItems->qty_item = $item['qty'];
+            $orderItems->sum_item = $item['price'] * $item['qty'];
+            $orderItems->save();
+        }
     }
 }
