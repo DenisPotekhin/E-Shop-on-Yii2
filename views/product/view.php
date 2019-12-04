@@ -1,9 +1,7 @@
 <?php
 
-use yii\web\View;
 use yii\helpers\Html;
-use yii\helpers\Url;
-use yii\widgets\LinkPager;
+
 ?>
 
 <section>

@@ -2,9 +2,9 @@
 
 /* @var $this yii\web\View */
 
-use yii\web\View;
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
+
 ?>
 
 <section id="advertisement">

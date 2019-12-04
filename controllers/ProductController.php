@@ -3,7 +3,6 @@
 
 namespace app\controllers;
 
-use app\models\Category;
 use app\models\Product;
 use Yii;
 

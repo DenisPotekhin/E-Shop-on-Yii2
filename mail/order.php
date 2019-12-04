@@ -19,7 +19,7 @@
             </tr>
         <?php endforeach;
 
-        use yii\helpers\Url; ?>
+        ?>
         <tr>
             <td colspan="3" style="padding: 8px; border: 1px solid #ddd;">Итого: </td>
             <td style="padding: 8px; border: 1px solid #ddd;"><?= $session['cart.qty'] ?></td>

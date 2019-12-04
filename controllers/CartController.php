@@ -3,14 +3,11 @@
 
 namespace app\controllers;
 
-use app\models\Category;
-use app\models\Product;
 use app\models\Cart;
 use app\models\Order;
 use app\models\OrderItems;
+use app\models\Product;
 use Yii;
-use yii\data\Pagination;
-use yii\web\Response;
 
 class CartController extends AppController
 {

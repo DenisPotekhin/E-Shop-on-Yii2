@@ -1,8 +1,9 @@
 <?php
 
 /* @var $this yii\web\View */
-use yii\web\View;
+
 use yii\helpers\Html;
+
 ?>
 
 <section id="slider"><!--slider-->

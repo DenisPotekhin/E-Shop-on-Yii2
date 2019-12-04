@@ -3,15 +3,11 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-use app\widgets\Alert;
-use yii\helpers\Html;
-use yii\helpers\Url;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\assets\LtAppAsset;
 use yii\bootstrap\Modal;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 LtAppAsset::register($this);
@@ -309,7 +305,7 @@ LtAppAsset::register($this);
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
+					<p class="pull-left">Created by Denis Potekhin.</p>
 					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
 				</div>
 			</div>

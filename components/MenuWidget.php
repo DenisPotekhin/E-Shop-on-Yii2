@@ -2,10 +2,9 @@
 
 namespace app\components;
 
-use yii\base\Widget;
-use yii\helpers\Html;
 use app\models\Category;
 use yii;
+use yii\base\Widget;
 
 class MenuWidget extends Widget
 {
