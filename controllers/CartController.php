@@ -69,10 +69,20 @@ class CartController extends AppController
             if ($order->save()) {
                 $this->saveOrderItems($session['cart'], $order->id);
                 Yii::$app->session->setFlash('success', 'Ваш заказ сохранен!');
+                Yii::$app->mailer->compose('order', ['session' => $session])
+                    ->setFrom(['eshop-test@mail.ru' => 'E-Shop'])
+                    ->setTo($order->email)
+                    ->setSubject('Заказ с сайта E-Shop')
+                    ->send();
+                Yii::$app->mailer->compose('order', ['session' => $session])
+                    ->setFrom(['eshop-test@mail.ru' => 'E-Shop'])
+                    ->setTo(Yii::$app->params['adminEmail'])
+                    ->setSubject('Заказ клиента!')
+                    ->send();
                 $session->remove('cart');
                 $session->remove('cart.qty');
                 $session->remove('cart.sum');
-                return Yii::$app->getResponse()->refresh();
+                return Yii::$app->getResponse()->refresh(); // instead $this->>refresh();
             } else {
                 Yii::$app->session->setFlash('error', 'Что-то пошло не так!');
             }
