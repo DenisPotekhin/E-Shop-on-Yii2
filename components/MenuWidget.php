@@ -25,13 +25,17 @@ class MenuWidget extends Widget
     public function run()
     {
         // get cache
-        $menu = yii::$app->cache->get('menu');
-        if ($menu) return $menu;
+        if ($this->tpl == 'menu.php') {
+            $menu = yii::$app->cache->get('menu');
+            if ($menu) return $menu;
+        }
         $this->data = Category::find()->indexBy('id')->asArray()->all();
         $this->tree = $this->getTree();
         $this->menuHtml = $this->getMenuHtml($this->tree);
         // set cache
-        yii::$app->cache->set('menu', $this->menuHtml, 3600);
+        if ($this->tpl == 'menu.php') {
+         yii::$app->cache->set('menu', $this->menuHtml, 3600);
+        }
         return $this->menuHtml;
     }
 
