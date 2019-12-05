@@ -31,20 +31,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            [
-                'attribute' => 'created_at',
-                'value' => function($model) {
-                    $datetime = new DateTime("@$model->created_at");
-                    return $datetime->format('d-m-Y H:i:s');
-                },
-            ],
-            [
+            'created_at',
+            'updated_at',
+ /*           [
                 'attribute' => 'updated_at',
                 'value' => function($model) {
                     $datetime = new DateTime("@$model->updated_at");
                     return $datetime->format('d-m-Y H:i:s');
                 },
             ],
+ */
             'qty',
             'sum',
             [

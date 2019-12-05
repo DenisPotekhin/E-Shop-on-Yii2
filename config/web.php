@@ -36,6 +36,11 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'formatter' => [
+            'dateFormat'     => 'php:d-m-Y',
+            'datetimeFormat' => 'php:d-m-Y в H:i:s',
+            'timeFormat'     => 'php:H:i:s',
+         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'transport' => [

@@ -2,6 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\datetime\DateTimePicker;
+use kartik\date\DatePicker;
+
+
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Order */
@@ -12,9 +16,35 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
+    <?= $form->field($model, 'created_at')->widget(DateTimePicker::className(),[
+        'name' => 'dp_1',
+        'type' => DateTimePicker::TYPE_INPUT,
+        'options' => ['placeholder' => 'Ввод даты/времени...'],
+        'convertFormat' => true,
+        'value' => $model->created_at,
+        'pluginOptions' => [
+            'format' => 'yyyy-MM-dd HH:mm:ss',
+            'autoclose'=>true,
+            'weekStart'=>1, //неделя начинается с понедельника
+            //        'startDate' => '01.05.2015 00:00', //самая ранняя возможная дата
+            'todayBtn'=>true, //снизу кнопка "сегодня"
+        ]
+    ]); ?>
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+    <?= $form->field($model, 'updated_at')->widget(DateTimePicker::className(),[
+        'name' => 'dp_2',
+        'type' => DateTimePicker::TYPE_INPUT,
+        'options' => ['placeholder' => 'Ввод даты/времени...'],
+        'convertFormat' => true,
+        'value' => $model->updated_at,
+        'pluginOptions' => [
+            'format' => 'yyyy-MM-dd HH:mm:ss',
+            'autoclose'=>true,
+            'weekStart'=>1, //неделя начинается с понедельника
+            //        'startDate' => '01.05.2015 00:00', //самая ранняя возможная дата
+            'todayBtn'=>true, //снизу кнопка "сегодня"
+        ]
+    ]); ?>
 
     <?= $form->field($model, 'qty')->textInput() ?>
 

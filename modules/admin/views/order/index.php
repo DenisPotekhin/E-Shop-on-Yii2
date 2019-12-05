@@ -35,20 +35,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html',
             ],
             //'status',
-            [
-                'attribute' => 'created_at',
-                'value' => function($data) {
-                    $datetime = new DateTime("@$data->created_at");
-                    return $datetime->format('d-m-Y H:i:s');
-                },
-            ],
-            [
+            'created_at',
+            'updated_at',
+  /*          [
                 'attribute' => 'updated_at',
                 'value' => function($data) {
                     $datetime = new DateTime("@$data->updated_at");
                     return $datetime->format('d-m-Y H:i:s');
                 },
             ],
+  */
 
             //'address',
 

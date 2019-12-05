@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
+use yii\db\Expression;
 
 ?>
 
@@ -22,7 +23,8 @@ use yii\widgets\ActiveForm;
             <?php echo Yii::$app->session->getFlash('error'); ?>
         </div>
     <?php endif; ?>
-    <?php if (!empty($session['cart'])): ?>
+
+     <?php if (!empty($session['cart'])): ?>
         <div class="table-responsive">
             <table class="table table-hover table-striped">
                 <thead>

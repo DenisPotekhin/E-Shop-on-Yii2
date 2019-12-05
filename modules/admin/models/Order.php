@@ -35,7 +35,7 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             [['created_at', 'updated_at', 'qty', 'sum', 'name', 'email', 'phone', 'address'], 'required'],
-            [['created_at', 'updated_at', 'qty'], 'integer'],
+            [['qty'], 'integer'],
             [['sum'], 'number'],
             [['status'], 'string'],
             [['name', 'email', 'phone', 'address'], 'string', 'max' => 255],
