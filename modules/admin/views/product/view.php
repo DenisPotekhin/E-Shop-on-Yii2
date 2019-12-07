@@ -30,16 +30,31 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'category_id',
+            [
+                'attribute' => 'category_id',
+                'value' => $model->category->name,
+            ],
             'name',
             'content:ntext',
             'price',
             'keywords',
             'description',
             'img',
-            'hit',
-            'new',
-            'sale',
+            [
+                'attribute' => 'hit',
+                'value' => $model->hit ? '<span class="text-danger">Да</span>' : '<span class="text-success">Нет</span>',
+                'format' => 'html',
+            ],
+            [
+                'attribute' => 'new',
+                'value' => $model->new ? '<span class="text-danger">Да</span>' : '<span class="text-success">Нет</span>',
+                'format' => 'html',
+            ],
+            [
+                'attribute' => 'sale',
+                'value' => $model->sale ? '<span class="text-danger">Да</span>' : '<span class="text-success">Нет</span>',
+                'format' => 'html',
+            ],
         ],
     ]) ?>
 

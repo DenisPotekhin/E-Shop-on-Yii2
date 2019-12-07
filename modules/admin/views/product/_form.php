@@ -12,7 +12,12 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'category_id')->textInput() ?>
+    <div class="form-group field-product-category_id has-success">
+        <label class="control-label" for="product-category_id">Родительская категория</label>
+        <select id="product-category_id" class="form-control" name="Product[category_id]">
+            <?= \app\components\MenuWidget::widget(['tpl' => 'select_product', 'model' => $model]) ?>
+        </select>
+    </div>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
@@ -26,11 +31,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'hit')->dropDownList([ '0', '1', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'hit')->dropDownList([ '0' => 'Нет', '1' => 'Да' ] ) ?>
 
-    <?= $form->field($model, 'new')->dropDownList([ '0', '1', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'new')->dropDownList([ '0' => 'Нет', '1' => 'Да' ] ) ?>
 
-    <?= $form->field($model, 'sale')->dropDownList([ '0', '1', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'sale')->dropDownList([ '0' => 'Нет', '1' => 'Да' ] ) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
