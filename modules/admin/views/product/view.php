@@ -16,8 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Изменить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -35,24 +35,24 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => $model->category->name,
             ],
             'name',
-            'content:ntext',
+            'content:html',
             'price',
             'keywords',
             'description',
             'img',
             [
                 'attribute' => 'hit',
-                'value' => $model->hit ? '<span class="text-danger">Да</span>' : '<span class="text-success">Нет</span>',
+                'value' => $model->hit ? '<span class="text-success">Да</span>' : '<span class="text-danger">Нет</span>',
                 'format' => 'html',
             ],
             [
                 'attribute' => 'new',
-                'value' => $model->new ? '<span class="text-danger">Да</span>' : '<span class="text-success">Нет</span>',
+                'value' => $model->new ? '<span class="text-success">Да</span>' : '<span class="text-danger">Нет</span>',
                 'format' => 'html',
             ],
             [
                 'attribute' => 'sale',
-                'value' => $model->sale ? '<span class="text-danger">Да</span>' : '<span class="text-success">Нет</span>',
+                'value' => $model->sale ? '<span class="text-success">Да</span>' : '<span class="text-danger">Нет</span>',
                 'format' => 'html',
             ],
         ],
