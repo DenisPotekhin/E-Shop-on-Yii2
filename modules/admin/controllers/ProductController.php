@@ -95,6 +95,9 @@ class ProductController extends Controller
                 $model->upload();
 
             }
+            unset($model->image);
+            $model->gallery = UploadedFile::getInstances($model, 'gallery');
+            $model->uploadGallery();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
